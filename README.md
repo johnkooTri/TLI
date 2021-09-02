@@ -1,3 +1,3 @@
-# java Scanner
+# java practice
 
 java scanner
