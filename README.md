@@ -1,3 +1,3 @@
 # java practice
 
-java scanner
+자바공부
