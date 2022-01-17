@@ -1,4 +1,4 @@
-package github;
+package github.collections;
 
 import java.util.ArrayList;
 
@@ -21,6 +21,11 @@ public class ArrayListEx {
 		list.add(1,"EEEE");
 		
 		System.out.println(list);
+		
+		
+		
+		
+		
 		
 		
 	}
