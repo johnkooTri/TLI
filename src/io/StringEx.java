@@ -1,4 +1,4 @@
-package github.io;
+package io;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
