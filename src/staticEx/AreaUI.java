@@ -1,4 +1,4 @@
-package github.staticEx;
+package staticEx;
 
 import java.util.Scanner;
 

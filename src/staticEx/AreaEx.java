@@ -1,4 +1,4 @@
-package github.staticEx;
+package staticEx;
 
 public class AreaEx {
 	public static double calcCircle(double radius) {

@@ -1,4 +1,4 @@
-package github.collections;
+package collections;
 
 public class Player {
 

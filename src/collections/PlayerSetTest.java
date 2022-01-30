@@ -1,4 +1,4 @@
-package github.collections;
+package collections;
 
 import java.util.HashSet;
 
