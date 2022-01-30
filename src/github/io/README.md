@@ -43,3 +43,21 @@ I/O 에서는 데이터를 읽거나 쓰는 빨대(스토로)만 기억하면 된다.
      public int read(byte[] b)
         throws IOException
 
+
+## OutputStream: 바이트의 데이터를 기록할 수 있다.
+write(int)방식은 한번에 파라미터로 들어오는 한 바이트에 해당하는 데이터만 넣어준다.
+
+    public abstract void write(int b)
+    throws IOException
+
+**write(byte[])은 파라미터로 입력된 데이터를 한번에 원하는 대상으로 데이터를 출력
+write(byte[],int,int)는 byte[]안에 있는 데이터를 원하는 위치에서부터 원하는 숫자만큼 데이터를 기록해줍니다.**
+
+    public void write(byte[] b,int off,int len)
+
+**flush()를 통해서 스트림에 기록된 데이터를 확실히 보낼 수 있다.**
+
+
+
+
+
