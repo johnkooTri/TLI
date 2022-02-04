@@ -12,6 +12,7 @@ public class HashMapEx2 {
     	
     	String answer = "";
         HashMap<String, Integer> hm = new HashMap<>();
+        
         for (String player : participant) hm.put(player, hm.getOrDefault(player, 0) + 1);
         
         System.out.println(hm.get("leo"));
