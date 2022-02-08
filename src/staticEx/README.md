@@ -9,7 +9,7 @@ Static 이라는 의미는 '정적인,움직이지 않는다'
 static이 붙은 변수는 클래스 변수라고 한다.
 static이 붙은 변수는 객체의 리모컨(레퍼런스)를 이용해서 사용하는 일반적인 객체지향 프로그래밍과는 달리 클래스의 변수이기때문에 그냥 '이름.클래스' 변수라는 방식으로 사용하게 됩니다.
 
-객체의영향을 받지 않기 때문에 static은 굳이 객체를 통해서 사용할 이유가 없습니다.
+객체의영향을 받지 않기 때문에 static은 굳이 객체를 통해서 사용할 이유가 없습니다. 
 
     public class AreaEx {
     	public static double calcCircle(double radius) {
