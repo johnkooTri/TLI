@@ -41,15 +41,18 @@
 ## keySet
 
 Map에 값을 전체 출력하기 위해서는 entrySet(), keySet() 메소드를 사용하면 되는데 
-entrySet() 메서드는 key와 value의 값이 모두 필요한 경우 사용
-keySet() 메서드는 key의 값만 필요한 경우 사용
+
+ - entrySet() 메서드는 key와 value의 값이 모두 필요한 경우 사용
+ - keySet() 메서드는 key의 값만 필요한 경우 사용
+ - 
 
     for (String key : hm.keySet()) {
-                if (hm.get(key) != 0){
-                    answer = key;
-                }
-        }
+          if (hm.get(key) != 0){
+              answer = key;
+          }
+    }
 
     for (Map.Entry<String, String> entry : map.entrySet()) { 
            System.out.println("[key]:" + entry.getKey() + ", [value]:" + entry.getValue());     
     }
+
