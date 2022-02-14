@@ -1,4 +1,5 @@
 
+
 # collections
 데이터의 저장 형태에 따른 자료구조 용어
 
@@ -31,3 +32,24 @@
         
         for (String player : completion) hm.put(player, hm.get(player) - 1);
         //player 가 존재하면 value 값 -1
+
+         for (String key : hm.keySet()) {
+            if (hm.get(key) != 0){
+                answer = key;
+            }
+        }
+## keySet
+
+Map에 값을 전체 출력하기 위해서는 entrySet(), keySet() 메소드를 사용하면 되는데 
+entrySet() 메서드는 key와 value의 값이 모두 필요한 경우 사용
+keySet() 메서드는 key의 값만 필요한 경우 사용
+
+    for (String key : hm.keySet()) {
+                if (hm.get(key) != 0){
+                    answer = key;
+                }
+        }
+
+    for (Map.Entry<String, String> entry : map.entrySet()) { 
+           System.out.println("[key]:" + entry.getKey() + ", [value]:" + entry.getValue());     
+    }
