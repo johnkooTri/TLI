@@ -1,58 +1,74 @@
+## 접근제한 의미
 
+ - public : 모든 외부에서 직접 접근하거나 호출 가능
+ - protected:현재클래스와 동일클래스이거나 상속시에 접근가능
+ -  default : 현재클래스와 동일패키지내에서만 접근가능
+ - private:현재클래스의 {} 바깥쪽에서는 절대로 보이지 않음
 
-# collections
-데이터의 저장 형태에 따른 자료구조 용어
+## **static 이라는 특별한 의미**
 
- - 리스트(list) : 순서를 가지고 있으며 중복을 허용하는 보관구조 (인덱스가 중요한 역할을 한다.)
- - 세트(Set):순서를 가지지 않고, 데이터의 중복을 허용하지 않는 구조
- - 맵(Map):키와 값을 가지며, 키를 가지고 원하는 데이터를 검색하는 구조
-## **getOrDefault**
+모든객체가 동일한 데이터를 참고해야 할 필요가 있다.
+모든객체는 데이터에 영향을 줄 수 있다.
 
-#### **- 찾는 키가 존재한다면 찾는 키의 값을 반환하고 없다면 기본 값을 반환하는 메서드**
+Static 이라는 의미는 '정적인,움직이지 않는다'
+메모리에서 고정되기 때문에 붙은 이름이지만, 여러분이 실제로 소스에서 static 을 사용한다는 의미는 모든 객체가 '공유'한다는 의미
 
-#### **사용 방법**
+static이 붙은 변수는 클래스 변수라고 한다.
+static이 붙은 변수는 객체의 리모컨(레퍼런스)를 이용해서 사용하는 일반적인 객체지향 프로그래밍과는 달리 클래스의 변수이기때문에 그냥 '이름.클래스' 변수라는 방식으로 사용하게 됩니다.
 
-> **getOrDefault(**Object  key, V DefaultValue**)**
+객체의영향을 받지 않기 때문에 static은 굳이 객체를 통해서 사용할 이유가 없습니다. 
 
-**매개 변수 :**  이 메서드는 두 개의 매개 변수를 허용합니다.
-
--   **key :**  값을 가져와야 하는 요소의 **키입니다.**
--   **defaultValue :**  지정된 키로 매핑된 값이 없는 경우 반환되어야  하는 **기본값입니다.**
-
-**반환 값 :** 찾는 key가 존재하면 해당 key에 매핑되어 있는 값을 반환하고, 그렇지 않으면  **디폴트 값이**  반환됩니다.
- 
-        String[] participant={"leo", "kiki", "eden"};
-    	String[] completion={"eden", "kiki"};    	
-    	
-    	String answer = "";
-        HashMap<String, Integer> hm = new HashMap<>();
-        
-        for (String player : participant) hm.put(player, hm.getOrDefault(player, 0) + 1);
-        //player 가 존재하면 1, 존재하지 않으면 디폴트값 0 
-        
-        for (String player : completion) hm.put(player, hm.get(player) - 1);
-        //player 가 존재하면 value 값 -1
-
-         for (String key : hm.keySet()) {
-            if (hm.get(key) != 0){
-                answer = key;
-            }
-        }
-## keySet
-
-Map에 값을 전체 출력하기 위해서는 entrySet(), keySet() 메소드를 사용하면 되는데 
-
- - entrySet() 메서드는 key와 value의 값이 모두 필요한 경우 사용
- - keySet() 메서드는 key의 값만 필요한 경우 사용
- - 
-
-    for (String key : hm.keySet()) {
-          if (hm.get(key) != 0){
-              answer = key;
-          }
+    public class AreaEx {
+    	public static double calcCircle(double radius) {
+    		return (radius * radius) * Math.PI;
+    	}
     }
 
-    for (Map.Entry<String, String> entry : map.entrySet()) { 
-           System.out.println("[key]:" + entry.getKey() + ", [value]:" + entry.getValue());     
+    import java.util.Scanner;
+    
+    public class AreaUI {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("반지름을 입력해 주세요");
+		
+		double r = sc.nextDouble();
+		double area = AreaEx.calcCircle(r);
+		
+		System.out.println("넓이는 :"+area);
+	}
+
+    }
+
+바로 AreaEx.calcCircle() 메소드를 활용
+static은 객체마다 다른데이터를 가지고 동작하는것을 막고 완벽하게 동일하게 동작하는 것을 보장하기 위해서 사용하기 때문에 굳이 객체를 사용해야 하는 이유가 없으므로 바로 **클래스이름.변수** 또는 **클래스이름.메소드** 사용
+
+Area ex = new AreaEx();
+double area = ex.calcCircle(r);
+**'굳이 static한 메소드를 객체를 통해서 사용할 필요가 없다.'**
+
+## static은 속도는 빠르지만, 메모리가 회수되지 않기 때문에 주의해야한다.
+가비지 컬렉션에 대상이 아니다.
+
+
+
+## static과 상수
+static은 클래스 변수로 객체의 상관없이 유지되는 데이터이고, 별도의 객체 생성 없이도 마음대로 사용할 수 있기 때문에 외부에서 누구나 사용하는 데이터를 정의하기도 한다.
+
+    public class CostEx {
+    
+    public static final int RECTANGLE=1;
+    public static final int TRIANGLE=2;
+    
+    public double getArea (int type, int width, int height ) {
+     double area =0.0;
+     
+     if (type== RECTANGLE){
+      area= width * height ;
+    }else{
+    }
+    return area;
+    
     }
 
